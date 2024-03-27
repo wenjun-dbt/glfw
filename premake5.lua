@@ -99,20 +99,22 @@ project "GLFW"
 		}
 
 	filter "configurations:Debug"
+		staticruntime "on"
 		runtime "Debug"
 		symbols "on"
 
 	filter { "system:windows", "configurations:Debug-AS" }	
 		runtime "Debug"
-		symbols "on"
-		sanitize { "Address" }
+		symbols "on"		
 		flags { "NoRuntimeChecks", "NoIncrementalLink" }
 
 	filter "configurations:Release"
+		staticruntime "on"
 		runtime "Release"
 		optimize "speed"
 
     filter "configurations:Dist"
+		staticruntime "on"
 		runtime "Release"
 		optimize "speed"
         symbols "off"
